@@ -13,7 +13,7 @@ from .models import ImageHeader, Service
 
 def service_list(request):
     index_page = ImageHeader.objects.all()
-    service1 = Service.objects.filter(parts__title='part1').order_by('-updated')
+    service1 = Service.objects.filter(parts__title='part1').order_by('timestamp')
     service2 = Service.objects.filter(parts__title='part2').order_by('timestamp')
     service3 = Service.objects.filter(parts__title='part3').order_by('-updated')
     service4 = Service.objects.filter(parts__title='part4').order_by('timestamp')
@@ -31,7 +31,7 @@ def service_list(request):
 
 def service_detail(request, slug=None):
     # service1 = Service.objects.all()
-    service1 = Service.objects.filter(parts__title='part1').order_by('-updated')
+    service1 = Service.objects.filter(parts__title='part1').order_by('timestamp')
     service2 = Service.objects.filter(parts__title='part2').order_by('timestamp')
     service3 = Service.objects.filter(parts__title='part3').order_by('-updated')
     service4 = Service.objects.filter(parts__title='part4').order_by('timestamp')
