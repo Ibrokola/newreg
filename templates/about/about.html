@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} About | {{ block.super }} {% endblock %}
+
+{% block content %}
+<section class="" style="padding-top: 10px; padding-bottom: 15px; background-color: rgb(248, 248, 248);">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% for obj in abhead %}
+                    {% if obj.image %}
+                        <img src="{{ obj.image.url }}" alt="header.png" class="img-rounded img-responsive img-fluid">              
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #F3F9F6; padding-top: 30px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+                {% include 'about/snippet/side_bar.html' %}
+            </div>
+            <div class="col-md-9 col-sm-9">
+                {% for item in abt %}
+                    <h4 class="h4-responsive">{{ item.title }}</h4>
+                    <h5 class="h5-responsive" style="padding-top: 10px; color:orange;">{{ item.sub_title }}</h5>
+                    <p>{{ item.description|safe }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #EDF4F0; padding-top: 20px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                
+            </div>
+            <div class="col-md-9 col-sm-9">
+                {% for obj in abad1 %}
+                    <h5 class="h5-responsive" style="padding-top: 30px; color:orange;">{{ obj.title }}</h5>
+                {% endfor %}
+                <div class="row">
+                    {% for obj in abad2 %}
+                    <div class="col-md-4 col-sm-4 text-center">
+                        {% if obj.image %}
+                            <img src="{{ obj.image.url }}" alt="member.png" class="img-responsive img-fluid" style="padding-top: 20px;">
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

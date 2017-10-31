@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %} Renewal Month | {{ block.super }} {% endblock %}
+
+
+{% block content %}
+<section class="" style="padding-top: 5px; padding-bottom: 15px; background-color: rgb(248, 248, 248);">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% for obj in header %}
+                    {% if obj.image %}
+                        <img src="{{ obj.image.url }}" alt="header.png" class="img-rounded img-responsive img-fluid">              
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #F3F9F6; padding-top: 30px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+                {% include 'about/snippet/side_bar.html' %}
+            </div>
+            <div class="col-md-9 col-sm-9">
+                {% for item in closed %}
+                    <h5 class="h4-responsive" style="color:green;">{{ item.title }}</h5>
+                    <h5 class="h5-responsive" style="padding-top: 10px; color:orange;">{{ item.days }}</h5>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #EDF4F0; padding-top: 20px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">                
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <h4 class="h4-responsive" style="color:orange;"><b>Vehicle Registration Renewal</b></h4>
+                <div class="row">    
+                    {% for obj in calender %}
+                    <div class="col-md-4 col-sm-4">
+                        {% if obj.img %}
+                            <img src="{{ obj.img.url }}" alt="renewal.png" class="img-responsive img-fluid" style="padding-top: 20px;">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+                        <h2 class="h2-responsive"><b>{{ obj.order|safe }}</b></h2>
+                        <p style="padding-top:10px;">{{ obj.title|safe }}</p>
+                        <p>{{ obj.desc|safe }}</p>                        
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #F3F9F6; padding-top: 40px; padding-bottom: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+
+            </div>
+            <div class="col-md-9 col-sm-9">
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

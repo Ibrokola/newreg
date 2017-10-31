@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Forms | {{ block.super }} {% endblock %}
+
+{% block content %}
+<section class="" style="padding-top: 10px; padding-bottom: 15px; background-color: rgb(248, 248, 248);">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% for obj in header %}
+                    {% if obj.image %}
+                        <img src="{{ obj.image.url }}" alt="header.png" class="img-rounded img-responsive img-fluid">              
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #F3F9F6; padding-top: 40px; padding-bottom: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+                {% include 'about/snippet/side_bar.html' %}
+            </div>
+            <div class="col-md-9 col-sm-9">
+                {% for item in header %}
+                    <h4 class="h4-responsive" style="color:orange">{{ item.title }}</h4>
+                    {% comment %} <h5 class="h5-responsive" style="padding-top: 10px;">{{ item.sub_title }}</h5> {% endcomment %}
+                    <p>{{ item.intro|safe }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #EDF4F0; padding-top: 40px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <div class="row">
+                    {% for item in cat %}
+                    <div class="col-md-3 col-sm-3 text-center">
+                        {% if item.img %}
+                            <a href="{{ item.get_absolute_url }}" style="text-decoration:none; color:darkolivegreen"> <img src="{{ item.img.url }}" alt="header.png" class="img-rounded img-responsive img-fluid"></a>
+                        {% endif %}
+                        <a href="{{ item.get_absolute_url }}" style="text-decoration:none; color:darkolivegreen"> <h5 class="h5-responsive" style="padding-top: 5px;">{{ item.title }}</h5></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

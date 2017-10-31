@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="section-landing-1">
+    <div class="container" style="padding-top:10px; padding-bottom: 10px;">
+        {% include "carousel.html" with carousel=carousel%}
+    </div>
+</section>
+<section class="section-landing">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% if intro %}
+                    {% for item in intro %}
+                        <h2 class="h2-responsive heading text-center wow fadeInDown" data-wow-delay="0.35s">{{ item.title }}</h2>
+                        <br>
+                        <p class="text-center wow fadeInUp" data-wow-delay="0.37s">{{ item.intro }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-2">
+    <div class="container">
+        <div class="row">
+            {% for item in remind %}
+            <div class="col-md-3 col-sm-3 text-center">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" class="img-fluid img-responsive wow fadeInDown" data-wow-delay="1.2s" alt="market.image">
+                {% endif %}
+                <h5 class="h5-responsive text-center wow fadeInLeft" style="margin-top: 15px;" data-wow-delay="1.21s"> {{ item.title }} </h5>
+                {% if item.button_remind %}
+                    <a href="{{ item.button_remind }}" target="_blank" style="text-decoration: none;"><button class="btn btn-outline-warning btn-round btn-block wow fadeInUp" data-wow-delay="1.21s" style="margin-bottom: 10px;">Set Reminder</button></a>
+                {# endif #}
+                {% elif item.button_renew %}
+                    <a href="{{ item.button_renew }}" target="_blank" style="text-decoration: none;"><button class="btn btn-outline-success btn-round btn-block wow fadeInUp" data-wow-delay="1.22s" style="margin-bottom: 10px;">Renew Now</button></a>
+                {% elif item.car_test %}
+                    <a href="{{ item.car_test }}" target="_blank" style="text-decoration: none;"><button class="btn btn-outline-primary btn-round btn-block wow fadeInUp" data-wow-delay="1.23s" style="margin-bottom: 10px;">Check Availability</button></a>
+                {% elif item.car_proof %}
+                    <a href="{{ item.car_proof }}" target="_blank" style="text-decoration: none;"><button class="btn btn-outline-success btn-round btn-block wow fadeInUp" data-wow-delay="1.24s" style="margin-bottom: 10px;">Alberta Health</button></a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="section-1">
+    <div class="container">
+        <div class="row">
+            {% for item in market %}
+            <div class="col-md-3 col-sm-3 wow flipInY wHighlight" data-wow-delay="1.25s">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" class="img-rounded img-fluid img-responsive" alt="market.image">
+                {% endif %}
+                <h4 class="h4-responsive" style="margin-top: 10px;"> {{ item.title }} </h4>
+                <p> {{ item.description }} </p>
+                <a href="{{ item.read_more }}"><button class="btn btn-outline-success btn-round" style="margin-bottom: 10px;">more</button></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

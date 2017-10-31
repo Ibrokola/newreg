@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load search_form %}
+
+{% block title %}Search | {{ block.super }}{% endblock %}
+
+{% block content %}
+
+<section class="" style="background-color: #F3F9F6; padding-top: 30px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+                {% include 'about/snippet/side_bar.html' %}
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <h4>Search {% if request.GET.q %}<small>Results for {{ request.GET.q }}</small>{% endif %}</h4><br><br>
+                {% for item in qs %}
+                    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a><br><br>
+                {% endfor %}
+                {% for item in s_qs %}
+                    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a><br><br>
+                {% endfor %}
+                {% for item in r_qs %}
+                    {% if item.ext_link %}
+                        <a href="{{ item.ext_link }}">{{ item.title }}</a><br><br>
+                    {% else %}
+                        <a href="{{ item.get_absolute_url }}">{{ item.title }}</a><br><br>
+                    {% endif %} 
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>    
+
+{% endblock content %}

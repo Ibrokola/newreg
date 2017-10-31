@@ -1,0 +1,7 @@
+{% for item in cert %}
+<span><a href="{{ item.get_absolute_url }}" style="text-decoration:none; color:darkolivegreen;">
+    <!-- <h6 class="h6-responsive">{{ item.title }}</h6> -->
+    <p>{{ item.title }}</p>
+</a></span>
+<hr style="color:orange;">   
+{% endfor %}

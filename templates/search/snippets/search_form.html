@@ -1,0 +1,10 @@
+<form method='GET' action="{% url 'search:default' %}" class="form-inline container-fluid" style="margin-right:10px;">
+    <div class="input-group">
+    <input type="text" name="q" value="{{ request.GET.q }}" class="form-control mr-sm-2" placeholder="Search..." aria-describedby="basic-addon1">
+    <button class="input-group-addon btn-default" id="basic-addon1" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <!-- <button class="btn btn-default" type="submit">Search</button> 
+    <button class="input-group-addon btn btn-outline-default my-2 my-sm-0" id="basic-addon1" type="submit"></button>
+    -->
+    {% comment %} <span class="input-group-addon" id="basic-addon1"></span> {% endcomment %}
+    </div>
+</form>

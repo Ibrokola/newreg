@@ -1,0 +1,55 @@
+{% load static %}
+{% load search_form %}
+<!-- <div class="bg-faded" style="background-color:#4F9269;"> -->
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-faded" style="background-color:#4F9269;">
+    <div class="container">
+        <!-- style="padding-top: 10px;" -->
+            <!-- <div style="margin-top: 15px;"> -->
+        <div class="navbar-translate">
+            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                {% comment %} <img src="{% static 'img/rsz_logo.png' %}" width="240" height="60" class="img-responsive"/> {% endcomment %}
+                <img src="{% static 'img/rsz_logo.png' %}" width="280" height="60" class="img-responsive wow bounceInLeft" data-wow-delay="0.35s"/>
+            </a>
+        </div>
+            <!-- </div> -->
+            
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'services:service_list' %}">Services</a>
+                    <!-- <span class="sr-only">(current)</span> -->
+                </li>
+                <li class="nav-item">
+                    <!-- <a class="nav-link" href="{# url 'cert:cert_list' #}">Certificates</a> -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'reg:reg_list' %}">Forms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'extra_list' %}">Renewal Month</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'driver_list' %}">Drivers Guide</a> 
+                </li>
+                
+                {% search_form request %}
+                <!-- <form class="form-inline container-fluid" style="margin-right:10px;">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="search here..." aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </div>
+                </form> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- </div> -->

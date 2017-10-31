@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{ cat_q.title }} | {{ block.super }} {% endblock %}
+{% block content %}
+<section class="" style="padding-top: 10px; padding-bottom: 15px; background-color: rgb(248, 248, 248);">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% for obj in header %}
+                    {% if obj.image %}
+                        <img src="{{ obj.image.url }}" alt="header.png" class="img-rounded img-responsive img-fluid">              
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #F3F9F6; padding-top: 40px; padding-bottom: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+                {% include 'about/snippet/side_bar.html' %}
+            </div>
+            <div class="col-md-9 col-sm-9">
+                {% if cat_q %}
+                    <h4 class="h4-responsive" style="color:orange">{{ cat_q.title }}</h4>
+                    <hr>
+                    <!-- <p>{{ item.intro|safe }}</p> -->
+                {% endif %}
+                {% for obj in reg_f %}
+                    {% if obj.ext_link %}
+                        <a href="{{ obj.ext_link }}" style="text-decoration:none; color:darkolivegreen" target="_blank"> <h5 class="h5-responsive" style="padding-top: 10px;">{{ obj.title }}</h5></a>
+                    {% else %}
+                        <a href="" style="text-decoration:none; color:darkolivegreen"><h5 class="h5-responsive" style="padding-top: 5px;">{{ obj.title }}</h5></a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #D9DED7; padding-top: 40px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">   
+            </div>
+            <div class="col-md-9 col-sm-9">
+                {% if cat_q.new_link %}
+                    <h5 style="padding-bottom: 20px;"><a href="{{ cat_q.new_link }}" target="_blank" style="text-decoration:none; color:darkolivegreen">Others....</a></h5>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

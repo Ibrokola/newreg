@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Certificates |{{ block.super }} {% endblock %}
+
+
+
+{% block content %}
+<section class="" style="padding-top: 10px; padding-bottom: 15px; background-color: rgb(248, 248, 248);">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% for obj in index_page %}
+                    {% if obj.image %}
+                        <img src="{{ obj.image.url }}" alt="header.png" class="img-rounded img-responsive img-fluid">              
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="" style="background-color: #F3F9F6; padding-top: 30px; padding-bottom: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                {% include 'certificates/snippet/list_side.html' with cert=cert %}
+            </div>
+            <div class="col-md-9 col-sm-9">
+                {% for item in index_page %}
+                    <h4 class="h4-responsive" style="color:orange;">{{ item.title }}</h4>
+                   <!-- <h5 class="h5-responsive" style="padding-top: 10px; color:orange;">{{ item.sub_title }}</h5> -->
+                    <p style="padding-top: 10px;">{{ item.intro|safe }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
