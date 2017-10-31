@@ -54,3 +54,10 @@
         </ul>
     </div>
 </div>
+{% for item in service4 %}
+<span><a href="{{ item.get_absolute_url }}" style="text-decoration:none; color:rgb(233, 147, 34);">
+    <!-- <h6 class="h6-responsive">{{ item.title }}</h6> -->
+    <p>{{ item.title }}</p>
+</a></span>
+<hr style="color:orange;">  
+{% endfor %}
