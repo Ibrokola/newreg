@@ -2,6 +2,14 @@
 
 {% block title %} {{ service.title }} | Services | {{ block.title }} {% endblock %}
 
+{% block extra-header %}
+<script>
+$("#motor").click(function(){
+    $("#service").fadeToggle("slow", "linear")
+});
+</script>
+{% endblock %}
+
 
 {% block content %}
 <div style="background-color: #EDF4F0; padding-bottom: 150px;">
