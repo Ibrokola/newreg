@@ -24,7 +24,7 @@
     servElement.toggle(visible);
     setCookie(visible);
 
-    $(".motor").click(function(e){
+    $(".motor").click(function(){
         var visible = !getCookie();
         setCookie(visible);
         servElement.toggle(visible);
@@ -39,21 +39,17 @@
     var getCookie = function(){
         return JSON.parse(Cookies.get(servSeen) || 'false');
     };
-    var setCookie = function(value){
-        Cookies.set(servSeen, value)
+    var setCookie = function(e){
+        Cookies.set(servSeen, e)
     };
     var seen = getCookie();
     seenElement.toggle(seen);
     setCookie(seen);
 
-    $(".motor1").click(function(e){
+    $(".motor1").click(function(){
         var seen = !getCookie();
         setCookie(seen);
         seenElement.toggle(seen);
-        // e.preventDefault();
-        // $(".service").fadeToggle();
-        // $(this).next(".service").fadeToggle();
-        // $(".service").fadeToggle("slow", "linear")
     });
 
     var servSeeing = 'servSeeing';
@@ -61,21 +57,17 @@
     var getCookie = function(){
         return JSON.parse(Cookies.get(servSeeing) || 'false');
     };
-    var setCookie = function(value){
-        Cookies.set(servSeeing, value)
+    var setCookie = function(val){
+        Cookies.set(servSeeing, val)
     };
     var seeing = getCookie();
     seeingElement.toggle(seeing);
     setCookie(seeing);
 
-    $(".motor2").click(function(e){
+    $(".motor2").click(function(){
         var seeing = !getCookie();
         setCookie(seeing);
         seeingElement.toggle(seeing);
-        // e.preventDefault();
-        // $(".service").fadeToggle();
-        // $(this).next(".service").fadeToggle();
-        // $(".service").fadeToggle("slow", "linear")
     });
 {% endblock %}
 </script>
