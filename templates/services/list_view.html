@@ -2,13 +2,40 @@
 
 {% block title %} Services | {{ block.super }} {% endblock %}
 
+
 {% block extra-header %}
-<script>
-$("#motor").click(function(){
-    $("#service").fadeToggle("slow", "linear")
-});
-</script>
+<style>
+    .service{
+        display: none;
+    }
+</style>
 {% endblock %}
+<script>
+{% block jquery %}
+
+    var servVisible = 'servVisible';
+    var servElement = $('.service');
+    var getCookie = function(){
+        return JSON.parse(Cookies.get(servVisible) || 'false');
+    };
+    var setCookie = function(value){
+        Cookies.set(servVisible, value)
+    };
+    var visible = getCookie();
+    servElement.toggle(visible);
+    setCookie(visible);
+
+    $(".motor").click(function(e){
+        var visible = !getCookie();
+        setCookie(visible);
+        servElement.toggle(visible);
+        // e.preventDefault();
+        // $(".service").fadeToggle();
+        // $(this).next(".service").fadeToggle();
+        // $(".service").fadeToggle("slow", "linear")
+    });
+{% endblock %}
+</script>
 
 {% block content %}
 <section class="" style="padding-top: 10px; padding-bottom: 15px; background-color: rgb(248, 248, 248);">
