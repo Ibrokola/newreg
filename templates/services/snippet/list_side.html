@@ -39,6 +39,23 @@
         </ul>
     </div>
 <!-- </div>    -->
+<p style="text-decoration:none; color:rgb(233, 147, 34);" class="motor">Motor Vehicle Services <span><i class="fa fa-hand-o-right" aria-hidden="true"></i></span></p>
+<!-- </a> -->
+<hr style="color:orange;">
+<div class="service">
+    <ul class="list-unstyled">
+        <li style="padding-left: 40px;">
+            {% for item in service5 %}
+            <span>
+                <a href="{{ item.get_absolute_url }}" style="text-decoration:none; color:rgb(233, 147, 34);">
+                    <p>{{ item.title }}</p>
+                </a>
+            </span>
+            <hr style="color:orange;">
+            {% endfor %}
+        </li>
+    </ul>
+</div>
 
 <!-- <hr style="color:orange;"> -->
 {% for item in service2 %}
@@ -47,6 +64,31 @@
         <p>{{ item.title }}</p>
     </a></span>
     <hr style="color:orange;">  
+{% endfor %}
+
+<p style="text-decoration:none; color:rgb(233, 147, 34);" class="motor">Motor Vehicle Services <span><i class="fa fa-hand-o-right" aria-hidden="true"></i></span></p>
+<!-- </a> -->
+<hr style="color:orange;">
+<div class="service">
+    <ul class="list-unstyled">
+        <li style="padding-left: 40px;">
+            {% for item in service6 %}
+            <span>
+                <a href="{{ item.get_absolute_url }}" style="text-decoration:none; color:rgb(233, 147, 34);">
+                    <p>{{ item.title }}</p>
+                </a>
+            </span>
+            <hr style="color:orange;">
+            {% endfor %}
+        </li>
+    </ul>
+</div>
+{% for item in service7 %}
+<span><a href="{{ item.get_absolute_url }}" style="text-decoration:none; color:rgb(233, 147, 34);">
+    <!-- <h6 class="h6-responsive">{{ item.title }}</h6> -->
+    <p>{{ item.title }}</p>
+</a></span>
+<hr style="color:orange;">  
 {% endfor %}
 
 <div id="accordion" role="tablist" aria-multiselectable="true">
