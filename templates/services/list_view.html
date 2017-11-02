@@ -34,6 +34,28 @@
         // $(this).next(".service").fadeToggle();
         // $(".service").fadeToggle("slow", "linear")
     });
+
+    var servVisible = 'servVisible';
+    var servElement = $('.service1');
+    var getCookie = function(){
+        return JSON.parse(Cookies.get(servVisible) || 'false');
+    };
+    var setCookie = function(value){
+        Cookies.set(servVisible, value)
+    };
+    var visible = getCookie();
+    servElement.toggle(visible);
+    setCookie(visible);
+
+    $(".motor1").click(function(e){
+        var visible = !getCookie();
+        setCookie(visible);
+        servElement.toggle(visible);
+        // e.preventDefault();
+        // $(".service").fadeToggle();
+        // $(this).next(".service").fadeToggle();
+        // $(".service").fadeToggle("slow", "linear")
+    });
 {% endblock %}
 </script>
 
