@@ -74,44 +74,49 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
         <script>
             $(document).ready(function(){
-                // alert('Working')
-                // {# block jquery #}
                 var servVisible = 'servVisible';
-                    var servElement = $('.service');
-                    var getCookie = function(){
-                        return JSON.parse(Cookies.get(servVisible) || 'false');
-                    };
-                    var setCookie = function(value){
-                        Cookies.set(servVisible, value)
-                    };
-                    var visible = getCookie();
-                    servElement.toggle(visible);
+                var servElement = $('.service');
+                var getCookie = function(){
+                    return JSON.parse(Cookies.get(servVisible) || 'false');
+                };
+                var setCookie = function(value){
+                    Cookies.set(servVisible, value)
+                };
+                var visible = getCookie();
+                servElement.toggle(visible);
+                setCookie(visible);
+
+                $(".motor").click(function(){
+                    var visible = !getCookie();
                     setCookie(visible);
+                    servElement.toggle(visible);
+                });
 
-                    $(".motor").click(function(){
-                        var visible = !getCookie();
-                        setCookie(visible);
-                        servElement.toggle(visible);
-                    });
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+                var servSeen = 'servSeen';
+                var seenElement = $('.service1');
+                var getCookie = function(){
+                    return JSON.parse(Cookies.get(servSeen) || 'false');
+                };
+                var setCookie = function(e){
+                    Cookies.set(servSeen, e)
+                };
+                var seen = getCookie();
+                seenElement.toggle(seen);
+                setCookie(seen);
 
-                    var servSeen = 'servSeen';
-                    var seenElement = $('.service1');
-                    var getCookie = function(){
-                        return JSON.parse(Cookies.get(servSeen) || 'false');
-                    };
-                    var setCookie = function(e){
-                        Cookies.set(servSeen, e)
-                    };
-                    var seen = getCookie();
-                    seenElement.toggle(seen);
+                $(".motor1").click(function(){
+                    var seen = !getCookie();
                     setCookie(seen);
+                    seenElement.toggle(seen);
+                });
 
-                    $(".motor1").click(function(){
-                        var seen = !getCookie();
-                        setCookie(seen);
-                        seenElement.toggle(seen);
-                    });
+            });
 
+            $(document).ready(function(){
                     var servSeeing = 'servSeeing';
                     var seeingElement = $('.service2');
                     var getCookie = function(){
@@ -141,6 +146,7 @@
                 }
 
             });
+
         </script>
         <script>
             new WOW().init();
