@@ -39,7 +39,7 @@ def service_detail(request, slug=None):
     # service1 = Service.objects.all()
     service1 = Service.objects.filter(parts__title='part1').order_by('timestamp')
     service2 = Service.objects.filter(parts__title='part2').order_by('timestamp')
-    service3 = Service.objects.filter(parts__title='part3').order_by('-updated')
+    service3 = Service.objects.filter(parts__title='part3').order_by('timestamp')
     service4 = Service.objects.filter(parts__title='part4').order_by('timestamp')
     service5 = Service.objects.filter(parts__title='part5').order_by('timestamp')
     service6 = Service.objects.filter(parts__title='part6').order_by('timestamp')
