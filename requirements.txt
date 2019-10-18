@@ -25,4 +25,4 @@ rollbar==0.13.13
 s3transfer==0.1.11
 six==1.11.0
 static3==0.7.0
-urllib3==1.22
+urllib3==1.24.2
